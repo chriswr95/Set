@@ -23,11 +23,35 @@ class Set
             }
             print(indicesOfSelectedCards)
         } else { //matched?
-            
+            var selectedCards = [Card]()
+            for index in indicesOfSelectedCards {
+                selectedCards.append(table[index])
+            }
+            let matched = match(selectedCards)
+            print(matched)
         }
     }
     
-    
+    private func match(_ cards: [Card]) -> Bool{
+        print("matching")
+        var colors = Swift.Set<Card.Color>()
+        var numbers = Swift.Set<Card.Number>()
+        var symbols = Swift.Set<Card.Symbol>()
+        var shades = Swift.Set<Card.Shading>()
+        for card in cards {
+            colors.insert(card.color)
+            numbers.insert(card.number)
+            symbols.insert(card.symbol)
+            shades.insert(card.shading)
+        }
+        
+        if colors.count == 2 || numbers.count == 2 || symbols.count == 2 || shades.count == 2 {
+            return false
+        } else {
+            return true
+        }
+
+    }
     
     func dealThreeMoreCards(){
         if table.count < 22 {
