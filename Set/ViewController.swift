@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        updateViewFromModel()
         
     }
     
@@ -28,7 +29,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBAction func dealThreeCards() {
-        
+        print("dealing three cards")
+        game.dealThreeMoreCards()
+        updateViewFromModel()
     }
     
     func updateViewFromModel(){

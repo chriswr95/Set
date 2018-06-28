@@ -11,7 +11,7 @@ import Foundation
 class Set
 {
     private var deck = [Card]() //NOTE: cards in deck are ordered, "shuffling" is achieved by picking a card at a random index from deck
-    var table = [Card]() //should never be larger than 24 cards
+    private(set) var table = [Card]() //should never be larger than 24 cards
     private(set) var selectedCards = [Card]() //should never be larger than 3 cards
     
     func chooseCard() {
@@ -19,7 +19,16 @@ class Set
     }
     
     func dealThreeMoreCards(){
-        
+        if table.count < 22 {
+            dealThisMany(cards: 3)
+        }
+    }
+    
+    private func dealThisMany(cards numberOfCards: Int){
+        for _ in 1...numberOfCards {
+            let dealtCard = deck.remove(at: deck.count.arc4random)
+            table.append(dealtCard)
+        }
     }
     
     init() {
@@ -30,20 +39,16 @@ class Set
                 for symbol in Card.Symbol.allValues {
                     for shading in Card.Shading.allValues{
                         i += 1
-                        print("\(number) \(color) \(symbol) \(shading) Card Number: \(i)")
+//                        print("\(number) \(color) \(symbol) \(shading) Card Number: \(i)")
                         deck.append(Card(number: number, symbol: symbol, shading: shading, color: color))
                     }
                 }
             }
         }
-        print(deck.count)
+        
         //Deal 12 random cards
-        for _ in 0...11 {
-            let dealtCard = deck.remove(at: deck.count.arc4random)
-            table.append(dealtCard)
-            print(dealtCard)
-        }
-        print(table)
+        dealThisMany(cards: 12)
+        
     }
     
     
