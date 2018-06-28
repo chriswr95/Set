@@ -11,7 +11,7 @@ import Foundation
 class Set
 {
     private var deck = [Card]() //NOTE: cards in deck are ordered, "shuffling" is achieved by picking a card at a random index from deck
-    private(set) var table = [Card]() //should never be larger than 24 cards
+    var table = [Card]() //should never be larger than 24 cards
     private(set) var selectedCards = [Card]() //should never be larger than 3 cards
     
     func chooseCard() {
