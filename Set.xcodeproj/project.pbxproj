@@ -63,8 +63,6 @@
 		011B00FA20E54E630052395D = {
 			isa = PBXGroup;
 			children = (
-				011B012620E54E9C0052395D /* Set.swift */,
-				011B012820E54EFF0052395D /* Card.swift */,
 				011B010520E54E630052395D /* Set */,
 				011B011A20E54E640052395D /* SetTests */,
 				011B010420E54E630052395D /* Products */,
@@ -83,6 +81,8 @@
 		011B010520E54E630052395D /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				011B012620E54E9C0052395D /* Set.swift */,
+				011B012820E54EFF0052395D /* Card.swift */,
 				011B010620E54E630052395D /* AppDelegate.swift */,
 				011B010820E54E630052395D /* ViewController.swift */,
 				011B010A20E54E630052395D /* Main.storyboard */,

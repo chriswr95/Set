@@ -13,24 +13,28 @@ class Card {
         case one
         case two
         case three
+        static let allValues = [one, two, three]
     }
     
     enum Symbol {
         case diamond
         case squiggle
         case oval
+        static let allValues = [diamond, squiggle, oval]
     }
     
     enum Shading {
         case solid
         case striped
         case open
+        static let allValues = [solid, striped, open]
     }
     
     enum Color {
         case red
         case green
         case purple
+        static let allValues = [red, green, purple]
     }
     
     let number: Number
