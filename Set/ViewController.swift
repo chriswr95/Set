@@ -20,8 +20,11 @@ class ViewController: UIViewController {
     var game = Set()
     
     @IBAction func touchCard(_ sender: UIButton) {
-        print("card touched")
-        updateViewFromModel()
+        let cardNumber = cardButtons.index(of: sender)!
+        if(cardNumber < game.table.count){
+            game.chooseCard(atIndex: cardNumber)
+            updateViewFromModel()
+        }
     }
     
     @IBOutlet var cardButtons: [UIButton]!
@@ -38,6 +41,11 @@ class ViewController: UIViewController {
         //Update cards
         for index in 0 ..< cardButtons.count{
             updateCardInView(at: index)
+        }
+        //Update chosen cards
+        for index in game.indicesOfSelectedCards {
+            cardButtons[index].layer.borderColor = UIColor.blue.cgColor
+            cardButtons[index].layer.borderWidth = 3.0
         }
         //Update score
     }
@@ -95,6 +103,7 @@ class ViewController: UIViewController {
             cardButtons[index].setAttributedTitle(blankTitle, for: UIControlState.normal)
             cardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         }
+        cardButtons[index].layer.borderWidth = 0.0
     }
     
 }
