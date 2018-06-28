@@ -85,7 +85,12 @@ class ViewController: UIViewController {
             let attributedText = NSAttributedString(string: text, attributes: attributes)
             
             cardButtons[index].setAttributedTitle(attributedText, for: UIControlState.normal)
+            cardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
+        } else { //No card here, so we will set to transparent
+            let blankTitle = NSAttributedString(string: "")
+            cardButtons[index].setAttributedTitle(blankTitle, for: UIControlState.normal)
+            cardButtons[index].backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         }
     }
     
